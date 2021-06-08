@@ -2,8 +2,7 @@ package com.bridzlab.employeewageoops;
 import java.util.Random;
 public class EmployeeWage {
 	static Random random = new Random();
-	public static final int EMPLOYEE_PRESENT = 1;
-	public static final int WAGE_PER_HOUR = 20;
+	public static final int EMPLOYEE_PRESENT = 1, WAGE_PER_HOUR = 20, EMPLOYEE_PART_TIME=2;
 	public static int empworkhours, dailywage;
 	public static void main(String[] args) {
 		EmployeeWage employeeWageObj = new EmployeeWage();
@@ -23,10 +22,14 @@ public class EmployeeWage {
 	 * Checking if Employee is present or absent by calling random
 	 */
 	public void employeeAttendance() {
-		int randm = random.nextInt(2);
+		int randm = random.nextInt(3);
 		if (randm == EMPLOYEE_PRESENT) {
 			System.out.println("Employee is Present\n");
 			empworkhours=8;
+		}	
+		else if(randm == EMPLOYEE_PART_TIME) {
+			System.out.println("Employee is Part-time Present\n");
+			empworkhours=4;
 		}	
 		else {
 			System.out.println("Employee is Absent\n");
