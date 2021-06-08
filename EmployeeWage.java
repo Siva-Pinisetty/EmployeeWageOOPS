@@ -19,21 +19,26 @@ public class EmployeeWage {
 	}
 	
 	/**
-	 * Checking if Employee is present or absent by calling random
+	 * Checking if Employee is Present, Part-Time or absent by calling random
+	 * Assigning working hours for each case 
 	 */
 	public void employeeAttendance() {
 		int randm = random.nextInt(3);
-		if (randm == EMPLOYEE_PRESENT) {
-			System.out.println("Employee is Present\n");
-			empworkhours=8;
-		}	
-		else if(randm == EMPLOYEE_PART_TIME) {
-			System.out.println("Employee is Part-time Present\n");
-			empworkhours=4;
-		}	
-		else {
-			System.out.println("Employee is Absent\n");
-			empworkhours=0;
+		switch (randm) {
+			case EMPLOYEE_PRESENT: {
+				System.out.println("Employee is Present\n");
+				empworkhours=8;
+				break;
+			}	
+			case EMPLOYEE_PART_TIME: {
+				System.out.println("Employee is Part-time Present\n");
+				empworkhours=4;
+				break;
+			}	
+			default: {
+				System.out.println("Employee is Absent\n");
+				empworkhours=0;
+				}
 		}
 	}
 	
