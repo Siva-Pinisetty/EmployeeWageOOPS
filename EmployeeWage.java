@@ -2,8 +2,8 @@ package com.bridzlab.employeewageoops;
 import java.util.Random;
 public class EmployeeWage {
 	static Random random = new Random();
-	public static final int EMPLOYEE_PRESENT = 1, WAGE_PER_HOUR = 20, EMPLOYEE_PART_TIME=2, MONTH_DAYS=20;
-	public static int empworkhours, dailywage, monthlywage=0;
+	public static final int EMPLOYEE_PRESENT = 1, WAGE_PER_HOUR = 20, EMPLOYEE_PART_TIME=2, MONTH_DAYS=20; 
+	public static int empworkhours, dailywage, monthlywage=0, totalworkhours=0;
 	static EmployeeWage employeeWageObj = new EmployeeWage();
 	public static void main(String[] args) {
 		employeeWageObj.welcomeDisplay();
@@ -51,15 +51,19 @@ public class EmployeeWage {
 	}
 	
 	/**
-	 * Calculating monthly employee wage
-	 * @param dailywage, MONTH_DAYS
+	 * Calculating Wage for either 20 days or working hours of 100 is reached
+	 * @param dailywage, MONTH_DAYS, empworkhours
+	 * @return monthlywage, totalworkhours
 	 */
 	public void monthlyWage() {
-		for (int i=1;i<=MONTH_DAYS;i++) {
+		int i=1;
+		while (totalworkhours<=100 && i<=MONTH_DAYS) {
 			employeeWageObj.employeeAttendance();
 			employeeWageObj.dailyWage(empworkhours,WAGE_PER_HOUR);
 			monthlywage+=dailywage;
+			totalworkhours+=empworkhours;
+			i++;
 		}
-		System.out.println(monthlywage+" is the Employee monthly wage\n");
+		System.out.println("Salary of "+monthlywage+" is credited in "+(i-1)+"th day for "+totalworkhours+" Hours");
 	}
 }
