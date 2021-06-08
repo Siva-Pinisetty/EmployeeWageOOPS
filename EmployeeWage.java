@@ -5,6 +5,7 @@ public class EmployeeWage {
 	public static final int EMPLOYEE_PRESENT = 1, WAGE_PER_HOUR = 20, EMPLOYEE_PART_TIME=2, MONTH_DAYS=20; 
 	public static int empworkhours, dailywage, monthlywage=0, totalworkhours=0;
 	static EmployeeWage employeeWageObj = new EmployeeWage();
+	
 	public static void main(String[] args) {
 		employeeWageObj.welcomeDisplay();
 		employeeWageObj.monthlyWage();
@@ -37,7 +38,7 @@ public class EmployeeWage {
 			default: {
 				//System.out.println("Employee is Absent\n");
 				empworkhours=0;
-				}
+			}
 		}
 	}
 	
@@ -52,6 +53,7 @@ public class EmployeeWage {
 	
 	/**
 	 * Calculating Wage for either 20 days or working hours of 100 is reached
+	 * Using Class Method to Compute Employee Wage
 	 * @param dailywage, MONTH_DAYS, empworkhours
 	 * @return monthlywage, totalworkhours
 	 */
